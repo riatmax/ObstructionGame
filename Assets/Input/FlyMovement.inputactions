@@ -1,0 +1,57 @@
+{
+    "version": 1,
+    "name": "FlyMovement",
+    "maps": [
+        {
+            "name": "LateralMove",
+            "id": "0a93990e-db05-40be-8f4c-ebbfdaa98766",
+            "actions": [
+                {
+                    "name": "LatMove",
+                    "type": "Value",
+                    "id": "7e82c512-55c0-4136-853c-f9384661cbb2",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "2D Vector",
+                    "id": "2d209e4b-302a-40da-af79-908b8bfe9131",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LatMove",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "7860650c-4930-47b6-95db-1536a1bcc063",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LatMove",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "97689612-271b-4a7a-b5ab-74c54594db0c",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LatMove",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
