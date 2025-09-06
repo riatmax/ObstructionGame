@@ -386,13 +386,13 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: e3f9186a94e07314f8a9d94fa8e55c3d, type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 1649973604}
+        m_TargetAssemblyTypeName: Fly, Assembly-CSharp
+        m_MethodName: LateralMove
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -400,6 +400,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 7e82c512-55c0-4136-853c-f9384661cbb2
     m_ActionName: 'LateralMove/LatMove[/Keyboard/w,/Keyboard/s]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1649973604}
+        m_TargetAssemblyTypeName: Fly, Assembly-CSharp
+        m_MethodName: LongMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: df87817c-7824-40b8-b286-530f0b94421c
+    m_ActionName: 'LateralMove/LongMove[/Keyboard/shift,/Keyboard/space]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: LateralMove
@@ -472,8 +488,8 @@ Transform:
   m_GameObject: {fileID: 1649973600}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.17, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -6.05, y: 0, z: 0}
+  m_LocalScale: {x: 2.8605888, y: 1.5667, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -490,9 +506,73 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3f9186a94e07314f8a9d94fa8e55c3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Fly
-  maxY: 5
-  minY: -5
-  moveSpeed: 2
+  maxY: 4
+  minY: -4
+  maxZ: 2
+  minZ: -2
+  moveSpeed: 10
+  flyBackSpeed: 2
+--- !u!1001 &6137832355548550225
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 423326754958425167, guid: 8f9145f8e1f7b8240882a94307718b98, type: 3}
+      propertyPath: progressSpeedModifier
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1911872337472866789, guid: 8f9145f8e1f7b8240882a94307718b98, type: 3}
+      propertyPath: m_Name
+      value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5823215084949839187, guid: 8f9145f8e1f7b8240882a94307718b98, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5823215084949839187, guid: 8f9145f8e1f7b8240882a94307718b98, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5823215084949839187, guid: 8f9145f8e1f7b8240882a94307718b98, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5823215084949839187, guid: 8f9145f8e1f7b8240882a94307718b98, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5823215084949839187, guid: 8f9145f8e1f7b8240882a94307718b98, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5823215084949839187, guid: 8f9145f8e1f7b8240882a94307718b98, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5823215084949839187, guid: 8f9145f8e1f7b8240882a94307718b98, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5823215084949839187, guid: 8f9145f8e1f7b8240882a94307718b98, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5823215084949839187, guid: 8f9145f8e1f7b8240882a94307718b98, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5823215084949839187, guid: 8f9145f8e1f7b8240882a94307718b98, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8f9145f8e1f7b8240882a94307718b98, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -500,3 +580,4 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 619394802}
   - {fileID: 1649973603}
+  - {fileID: 6137832355548550225}
