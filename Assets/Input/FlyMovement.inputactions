@@ -23,6 +23,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "LeftRight",
+                    "type": "Value",
+                    "id": "cb4b9e4c-0118-4c93-8636-7933defd5346",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -71,7 +80,7 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "Down",
+                    "name": "Up",
                     "id": "40ed9c98-64bc-4a9e-9032-d28cd097a966",
                     "path": "<Keyboard>/shift",
                     "interactions": "",
@@ -82,13 +91,46 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Up",
+                    "name": "Down",
                     "id": "088bdf63-a0ee-4254-8442-7c80d91ffe89",
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "LongMove",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "38e5c5ba-6a4d-4dad-b7f6-c5f2c9efbc7b",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftRight",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "left",
+                    "id": "19480366-3d4a-4f9d-84ec-962e4b43f12c",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftRight",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "21e0fc2a-401c-42d0-bcc0-722c519dd6ed",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftRight",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }

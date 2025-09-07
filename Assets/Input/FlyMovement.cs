@@ -109,6 +109,15 @@ public partial class @FlyMovement: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""LeftRight"",
+                    ""type"": ""Value"",
+                    ""id"": ""cb4b9e4c-0118-4c93-8636-7933defd5346"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -157,7 +166,7 @@ public partial class @FlyMovement: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""Down"",
+                    ""name"": ""Up"",
                     ""id"": ""40ed9c98-64bc-4a9e-9032-d28cd097a966"",
                     ""path"": ""<Keyboard>/shift"",
                     ""interactions"": """",
@@ -168,13 +177,46 @@ public partial class @FlyMovement: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""Up"",
+                    ""name"": ""Down"",
                     ""id"": ""088bdf63-a0ee-4254-8442-7c80d91ffe89"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""LongMove"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""38e5c5ba-6a4d-4dad-b7f6-c5f2c9efbc7b"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftRight"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""19480366-3d4a-4f9d-84ec-962e4b43f12c"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""21e0fc2a-401c-42d0-bcc0-722c519dd6ed"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LeftRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 }
@@ -187,6 +229,7 @@ public partial class @FlyMovement: IInputActionCollection2, IDisposable
         m_LateralMove = asset.FindActionMap("LateralMove", throwIfNotFound: true);
         m_LateralMove_LatMove = m_LateralMove.FindAction("LatMove", throwIfNotFound: true);
         m_LateralMove_LongMove = m_LateralMove.FindAction("LongMove", throwIfNotFound: true);
+        m_LateralMove_LeftRight = m_LateralMove.FindAction("LeftRight", throwIfNotFound: true);
     }
 
     ~@FlyMovement()
@@ -269,6 +312,7 @@ public partial class @FlyMovement: IInputActionCollection2, IDisposable
     private List<ILateralMoveActions> m_LateralMoveActionsCallbackInterfaces = new List<ILateralMoveActions>();
     private readonly InputAction m_LateralMove_LatMove;
     private readonly InputAction m_LateralMove_LongMove;
+    private readonly InputAction m_LateralMove_LeftRight;
     /// <summary>
     /// Provides access to input actions defined in input action map "LateralMove".
     /// </summary>
@@ -288,6 +332,10 @@ public partial class @FlyMovement: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "LateralMove/LongMove".
         /// </summary>
         public InputAction @LongMove => m_Wrapper.m_LateralMove_LongMove;
+        /// <summary>
+        /// Provides access to the underlying input action "LateralMove/LeftRight".
+        /// </summary>
+        public InputAction @LeftRight => m_Wrapper.m_LateralMove_LeftRight;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -320,6 +368,9 @@ public partial class @FlyMovement: IInputActionCollection2, IDisposable
             @LongMove.started += instance.OnLongMove;
             @LongMove.performed += instance.OnLongMove;
             @LongMove.canceled += instance.OnLongMove;
+            @LeftRight.started += instance.OnLeftRight;
+            @LeftRight.performed += instance.OnLeftRight;
+            @LeftRight.canceled += instance.OnLeftRight;
         }
 
         /// <summary>
@@ -337,6 +388,9 @@ public partial class @FlyMovement: IInputActionCollection2, IDisposable
             @LongMove.started -= instance.OnLongMove;
             @LongMove.performed -= instance.OnLongMove;
             @LongMove.canceled -= instance.OnLongMove;
+            @LeftRight.started -= instance.OnLeftRight;
+            @LeftRight.performed -= instance.OnLeftRight;
+            @LeftRight.canceled -= instance.OnLeftRight;
         }
 
         /// <summary>
@@ -391,5 +445,12 @@ public partial class @FlyMovement: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnLongMove(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "LeftRight" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnLeftRight(InputAction.CallbackContext context);
     }
 }

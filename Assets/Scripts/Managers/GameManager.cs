@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public float gameProgress;
+    public static float gameProgress;
 
     [SerializeField] private float progressSpeedModifier;
 
