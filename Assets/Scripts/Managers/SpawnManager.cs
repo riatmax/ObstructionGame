@@ -2,15 +2,12 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public void startSpawning(Phase p)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        EnemySpawning[] enemies = p.enemySpawns;
+        for (int i = 0; i < enemies.Length; i++)
+        {
+           // float randX = Random.Range(enemies[i].script.)
+        }
     }
 }
