@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4abc65e508842bb48903d692b31da913, type: 3}
   m_Name: FirstPhase
   m_EditorClassIdentifier: Assembly-CSharp::Phase
-  enemyPrefabs: []
-  spawnRate: 0
+  enemySpawns: []
+  minProg: 0.1
+  maxProg: 0.3

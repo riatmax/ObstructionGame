@@ -153,7 +153,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1084f1c186ae8ba40bbe5a400f7cd87d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StraightDustParticle
-  minY: 0
-  maxY: 0
+  minXSpawn: 9
+  maxXSpawn: 9
+  minYSpawn: -4
+  maxYSpawn: 4
   moveSpeedMin: 5
   moveSpeedMax: 10

@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class StraightDustParticle : Enemy
 {
-    [SerializeField] private float minY;
-    [SerializeField] private float maxY;
     [SerializeField] private float moveSpeedMin;
     [SerializeField] private float moveSpeedMax;
 
@@ -15,6 +13,7 @@ public class StraightDustParticle : Enemy
     {
         moveSpeed = Random.Range(moveSpeedMin, moveSpeedMax);
         rb = GetComponent<Rigidbody>();
+
     }
     private void FixedUpdate()
     {

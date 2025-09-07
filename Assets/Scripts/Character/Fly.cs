@@ -4,16 +4,18 @@ using UnityEngine.InputSystem;
 public class Fly : MonoBehaviour
 {
     [Header("Fly Stats")]
-    [SerializeField] private float maxX;
     [SerializeField] private float minX;
-    [SerializeField] private float maxY;
+    [SerializeField] private float maxX;
     [SerializeField] private float minY;
-    [SerializeField] private float maxZ;
+    [SerializeField] private float maxY;
     [SerializeField] private float minZ;
+    [SerializeField] private float maxZ;
     [SerializeField] private float moveSpeed;
     [SerializeField] private float flyBackSpeed;
     [SerializeField] private float scaleFactor;
-    [SerializeField] public static int health;
+    [SerializeField] private int healthVal;
+    
+    public static int health;
 
     private Vector2 latMoveInput;
     private Vector2 longMoveInput;
@@ -30,6 +32,7 @@ public class Fly : MonoBehaviour
         playerControls = new FlyMovement();
         startScale = transform.localScale;
         rb = GetComponent<Rigidbody>();
+        health = healthVal;
     }
 
     private void FixedUpdate()
