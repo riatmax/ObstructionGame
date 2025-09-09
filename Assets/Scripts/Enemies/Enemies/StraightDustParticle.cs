@@ -13,7 +13,6 @@ public class StraightDustParticle : Enemy
     {
         moveSpeed = Random.Range(moveSpeedMin, moveSpeedMax);
         rb = GetComponent<Rigidbody>();
-
     }
     private void FixedUpdate()
     {

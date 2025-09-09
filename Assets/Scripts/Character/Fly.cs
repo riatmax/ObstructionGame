@@ -34,6 +34,13 @@ public class Fly : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         health = healthVal;
     }
+    private void Update()
+    {
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void FixedUpdate()
     {
@@ -80,9 +87,5 @@ public class Fly : MonoBehaviour
     public void LeftRight(InputAction.CallbackContext ctx)
     {
         leftRightInput = ctx.ReadValue<Vector2>();
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("collided");
     }
 }

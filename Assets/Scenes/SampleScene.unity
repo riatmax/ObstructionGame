@@ -752,12 +752,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8996967834336690855, guid: 8f9145f8e1f7b8240882a94307718b98, type: 3}
       propertyPath: phases.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8996967834336690855, guid: 8f9145f8e1f7b8240882a94307718b98, type: 3}
       propertyPath: 'phases.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: 7c83f28978849f1479bf2fb3c1ae9b92, type: 2}
+    - target: {fileID: 8996967834336690855, guid: 8f9145f8e1f7b8240882a94307718b98, type: 3}
+      propertyPath: 'phases.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: b5d2ffee37d0dcf4eb0ea82019cb94ca, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

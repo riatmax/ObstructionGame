@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4abc65e508842bb48903d692b31da913, type: 3}
-  m_Name: FirstPhase
+  m_Name: HandPhase
   m_EditorClassIdentifier: Assembly-CSharp::Phase
   enemySpawns:
-  - {fileID: 11400000, guid: d46dbbb98078a694ca781807898ae6fb, type: 2}
-  minProg: 1
-  maxProg: 100
+  - {fileID: 11400000, guid: 7cbb4887737284a40828b4caf97e42a7, type: 2}
+  minProg: 5
+  maxProg: 50

@@ -7,16 +7,23 @@ public class Enemy : MonoBehaviour
     public float minYSpawn;
     public float maxYSpawn;
     public float ZSpawn;
-    private void OnCollisionEnter(Collision collision)
+
+    private void Awake()
+    {
+        GameManager.activeEnemies.Add(gameObject);
+    }
+    private void OnTriggerEnter(Collider other)
     {
         // player layer
-        if (collision.gameObject.layer == 6)
+        if (other.gameObject.layer == 6)
         {
+            GameManager.activeEnemies.Remove(gameObject);
             Fly.health--;
             Destroy(gameObject);
         }
-        if (collision.gameObject.layer == 7)
+        if (other.gameObject.layer == 7)
         {
+            GameManager.activeEnemies.Remove(gameObject);
             Destroy(gameObject);
         }
     }
