@@ -15,6 +15,6 @@ public class StraightHand : Enemy
     {
         Vector3 pos = transform.position;
         pos.x -= moveSpeed * Time.deltaTime;
-        transform.position = pos;
+        rb.MovePosition(pos);
     }
 }

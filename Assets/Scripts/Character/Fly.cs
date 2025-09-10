@@ -1,5 +1,7 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Fly : MonoBehaviour
 {
@@ -14,6 +16,8 @@ public class Fly : MonoBehaviour
     [SerializeField] private float flyBackSpeed;
     [SerializeField] private float scaleFactor;
     [SerializeField] private int healthVal;
+
+    [SerializeField] private GameObject flyPoint;
     
     public static int health;
 
@@ -24,21 +28,31 @@ public class Fly : MonoBehaviour
     private Vector3 startScale;
 
     private Rigidbody rb;
+    private BoxCollider bc;
 
     private FlyMovement playerControls;
+    private PlayerInput pi;
 
     private void Awake()
     {
-        playerControls = new FlyMovement();
+        pi = FindFirstObjectByType<PlayerInput>();
         startScale = transform.localScale;
         rb = GetComponent<Rigidbody>();
         health = healthVal;
+        bc = GetComponent<BoxCollider>();
     }
     private void Update()
     {
         if (health <= 0)
         {
             Destroy(gameObject);
+            Scene currentScene = SceneManager.GetActiveScene();
+            SceneManager.LoadScene(currentScene.name);
+        }
+        if (GameManager.gameProgress >= 95)
+        {
+            bc.enabled = false;
+            StartCoroutine(startEndSeq());
         }
     }
 
@@ -87,5 +101,25 @@ public class Fly : MonoBehaviour
     public void LeftRight(InputAction.CallbackContext ctx)
     {
         leftRightInput = ctx.ReadValue<Vector2>();
+    }
+
+    private IEnumerator startEndSeq()
+    {
+        pi.enabled = false;
+        Vector3 targetPos = new Vector3(-6f, flyPoint.transform.position.y, 0f);
+        while (Vector3.Distance(transform.position, targetPos) > 0.01f)
+        {
+            transform.position = Vector3.Lerp(transform.position, targetPos, .005f);
+            yield return null; // wait for next frame
+        }
+        yield return new WaitUntil(() => Ear.inPos);
+        targetPos = flyPoint.transform.position;
+        while (Vector3.Distance(transform.position, targetPos) > 0.01f)
+        {
+            transform.position = Vector3.Lerp(transform.position, targetPos, .005f);
+            yield return null;
+        }
+        yield return new WaitUntil(() => (Mathf.Abs(transform.position.x - flyPoint.transform.position.x) <= .01f) && Mathf.Abs(transform.position.y - flyPoint.transform.position.y) <= .01f);
+        Destroy(gameObject);
     }
 }
