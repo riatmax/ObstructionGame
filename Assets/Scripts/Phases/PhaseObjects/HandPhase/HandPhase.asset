@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Phase
   enemySpawns:
   - {fileID: 11400000, guid: 7cbb4887737284a40828b4caf97e42a7, type: 2}
-  minProg: 15
+  minProg: 50
   maxProg: 95

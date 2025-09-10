@@ -112,8 +112,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.18240957, y: 0.82968605, z: 0.24567384}
-  m_Center: {x: -0.026200257, y: -0.08515669, z: 0.009501278}
+  m_Size: {x: 0.18240957, y: 0.82968605, z: 4.0554953}
+  m_Center: {x: -0.026200257, y: -0.08515669, z: -0.3466369}
 --- !u!54 &3313710498811125414
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StraightHand
   minXSpawn: 9
   maxXSpawn: 9
-  minYSpawn: -1.3
-  maxYSpawn: -1.3
+  minYSpawn: -4
+  maxYSpawn: -4
   ZSpawn: 0
   moveSpeed: 7

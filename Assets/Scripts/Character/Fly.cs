@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Fly : MonoBehaviour
 {
@@ -18,6 +19,9 @@ public class Fly : MonoBehaviour
     [SerializeField] private int healthVal;
 
     [SerializeField] private GameObject flyPoint;
+
+    [SerializeField] private TMP_Text winText;
+    [SerializeField] private GameObject button;
     
     public static int health;
 
@@ -40,6 +44,9 @@ public class Fly : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         health = healthVal;
         bc = GetComponent<BoxCollider>();
+        winText.enabled = false;
+        button.SetActive(false);
+        Time.timeScale = 1;
     }
     private void Update()
     {
@@ -109,17 +116,20 @@ public class Fly : MonoBehaviour
         Vector3 targetPos = new Vector3(-6f, flyPoint.transform.position.y, 0f);
         while (Vector3.Distance(transform.position, targetPos) > 0.01f)
         {
-            transform.position = Vector3.Lerp(transform.position, targetPos, .005f);
+            transform.position = Vector3.MoveTowards(transform.position, targetPos, .00005f);
             yield return null; // wait for next frame
         }
         yield return new WaitUntil(() => Ear.inPos);
         targetPos = flyPoint.transform.position;
         while (Vector3.Distance(transform.position, targetPos) > 0.01f)
         {
-            transform.position = Vector3.Lerp(transform.position, targetPos, .005f);
+            transform.position = Vector3.MoveTowards(transform.position, targetPos, .00005f);
             yield return null;
         }
-        yield return new WaitUntil(() => (Mathf.Abs(transform.position.x - flyPoint.transform.position.x) <= .01f) && Mathf.Abs(transform.position.y - flyPoint.transform.position.y) <= .01f);
+        yield return new WaitUntil(() => (Vector3.Distance(transform.position, targetPos) > 0.01f));
+        Time.timeScale = 0f;
+        winText.enabled = true;
+        button.SetActive(true);
         Destroy(gameObject);
     }
 }

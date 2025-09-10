@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawning
   enemyPrefab: {fileID: 1957900118976500753, guid: 2443b765e9a834241a24d0b614d133ca, type: 3}
   num: 1
-  spawnRate: 0.5
+  spawnRate: 0.1
